@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Student Analytic</title>
+</head>
+<body>
+  <h1>Smart Student Analytic Dashboard</h1>
+  <div id="student-data"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
