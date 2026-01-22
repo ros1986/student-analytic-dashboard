@@ -48,18 +48,12 @@ jobs:
         with:
           name: node-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2D0CB31E1A9741CF93FCDE3CB077405A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_BD2DAA3F8E6E459F93808A0379F7D371 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_90B5163110604E7D97D8C56F3FF0F4C6 }}
+     
+       name: Deploy to Azure Web App
+  uses: azure/webapps-deploy@v3
+  with:
+    app-name: student-analytic-dashboard
+    publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+    package: .
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'student-analytic-dashboard'
-          slot-name: 'Production'
-          package: .
           
