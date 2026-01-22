@@ -1,15 +1,11 @@
 const express = require('express');
-const path = require('path');
 const sql = require('mssql');
 
 const app = express();
 
-// Serve static files dari folder public
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Route utama
+// Route utama – simple health check
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.send('Smart Student Analytic API is running');
 });
 
 // API untuk tarik data student
